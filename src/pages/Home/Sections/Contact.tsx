@@ -122,6 +122,8 @@ const Contact = () => {
           letterSpacing="0.08em"
           width={{ base: '100%', md: '45%' }}
           isLoading={loading}
+          onClick={handleSubmitContact}
+          isDisabled={message.length < 2 || name.length < 2 || email.length < 2}
         >
           Submit
         </Button>
