@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FormLabel } from '@chakra-ui/form-control';
 import { Input } from '@chakra-ui/input';
 import { Box, Text } from '@chakra-ui/layout';
@@ -6,12 +6,30 @@ import { Textarea } from '@chakra-ui/textarea';
 import { containerPadding } from '..';
 import axios from 'axios';
 import { Button } from '@chakra-ui/button';
+import { HiOutlineCheck, HiOutlineExclamationCircle } from 'react-icons/hi';
+import { useToken } from '@chakra-ui/system';
+
+interface MessageSubmit {
+  type: 'error' | 'success';
+  message: string;
+}
 
 const Contact = () => {
   const [loading, setLoading] = useState(false);
+  const [showMessage, setShowMessage] = useState<MessageSubmit | null>(null);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+
+  const [green400, red400] = useToken('colors', ['green.400', 'red.400']);
+
+  useEffect(() => {
+    if (showMessage !== null) {
+      setTimeout(() => {
+        setShowMessage(null);
+      }, 6000);
+    }
+  }, [showMessage]);
 
   const handleSubmitContact = () => {
     if (message.length < 2 || name.length < 2 || email.length < 2) {
@@ -25,13 +43,17 @@ const Contact = () => {
         email,
         message,
       })
-      .then((response) => {
-        console.log(response);
+      .then(() => {
         setLoading(false);
+        setShowMessage({ type: 'success', message: 'Message sent successfully!' });
       })
-      .catch((err) => {
-        console.error(err);
+      .catch(() => {
         setLoading(false);
+        setShowMessage({
+          type: 'error',
+          message:
+            "Something went wrong :(, but you can still message me at: 'gabriel.silipi@gmail.com'.",
+        });
       });
   };
 
@@ -127,6 +149,29 @@ const Contact = () => {
         >
           Submit
         </Button>
+        <Text
+          color="green.400"
+          fontSize="sm"
+          letterSpacing="0.05em"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          mt="2"
+        >
+          {showMessage !== null && (
+            <>
+              {showMessage?.type === 'error' ? (
+                <HiOutlineCheck color={green400} style={{ marginRight: '8px' }} />
+              ) : (
+                <HiOutlineExclamationCircle
+                  color={red400}
+                  style={{ marginRight: '8px' }}
+                />
+              )}
+              {showMessage?.message}
+            </>
+          )}
+        </Text>
       </Box>
     </Box>
   );

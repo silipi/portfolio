@@ -13,9 +13,6 @@ ReactDOM.render(
         fonts: { body: 'Montserrat' },
         styles: {
           global: {
-            html: {
-              scrollBehavior: 'smooth',
-            },
             body: {
               overflow: 'hidden',
             },
