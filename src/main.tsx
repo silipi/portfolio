@@ -7,23 +7,6 @@ ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider
       theme={extendTheme({
-        components: {
-          Text: {
-            variants: {
-              'section-title': {
-                p: '12',
-                mb: '6',
-                as: 'h2',
-                color: 'white',
-                left: '18%',
-                casing: 'uppercase',
-                fontWeight: 'light',
-                letterSpacing: '0.165em',
-              },
-            },
-          },
-        },
-
         colors: {
           blackAlt: '#191A24',
         },
