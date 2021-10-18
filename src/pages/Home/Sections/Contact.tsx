@@ -160,7 +160,7 @@ const Contact = () => {
         >
           {showMessage !== null && (
             <>
-              {showMessage?.type === 'error' ? (
+              {showMessage?.type === 'success' ? (
                 <HiOutlineCheck color={green400} style={{ marginRight: '8px' }} />
               ) : (
                 <HiOutlineExclamationCircle
