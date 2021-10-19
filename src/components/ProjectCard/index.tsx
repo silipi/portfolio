@@ -16,7 +16,7 @@ const ProjectCard = ({
   techs?: string[];
   links: {
     github: string;
-    website: string;
+    website?: string;
   };
 }) => {
   const handleClick = (type: 'github' | 'website') => {
@@ -29,7 +29,7 @@ const ProjectCard = ({
 
   return (
     <Flex
-      h={{ base: '220px', lg: '240px' }}
+      h={{ base: '240px', lg: '260px' }}
       w="100%"
       flexDir="column"
       bgGradient={`linear(to-b, ${gradientColors[0]}, ${gradientColors[1]})`}
@@ -49,11 +49,13 @@ const ProjectCard = ({
           style={{ marginLeft: '4px' }}
           onClick={() => handleClick('github')}
         />
-        <HiExternalLink
-          size="30px"
-          cursor="pointer"
-          onClick={() => handleClick('website')}
-        />
+        {links.website && (
+          <HiExternalLink
+            size="30px"
+            cursor="pointer"
+            onClick={() => handleClick('website')}
+          />
+        )}
       </Flex>
       <Box mt="auto">
         <Text
@@ -71,7 +73,7 @@ const ProjectCard = ({
           fontSize="sm"
           textAlign="center"
           px={{ base: '4', md: '6', lg: '12' }}
-          mb="16"
+          mb={{ base: '12', sm: '4', md: '12', lg: '16' }}
           textDecoration="underline"
         >
           {description}

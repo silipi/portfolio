@@ -1,6 +1,8 @@
 import HeaderButton from '@/components/HeaderButton';
 import { Box, Flex, Text } from '@chakra-ui/layout';
 import { containerPadding } from '..';
+import { RiBook2Fill } from 'react-icons/ri';
+import { BsGithub, BsLinkedin } from 'react-icons/bs';
 
 const Initial = () => {
   return (
@@ -8,7 +10,11 @@ const Initial = () => {
       <Box bgColor="white" h="45%" position="relative" px={containerPadding}>
         <Flex pt="2" flexDirection="row-reverse" css={{ gap: '20px' }}>
           <HeaderButton text="PROJECTS" onClick={() => console.log('Click!')} />
-          <HeaderButton text="MY RESUME" onClick={() => console.log('Click!')} />
+          <HeaderButton
+            text="MY RESUME"
+            icon={<RiBook2Fill />}
+            onClick={() => window.open('/GabrielSilipi-Resume.pdf', '_blank')}
+          />
         </Flex>
         <Text
           as="h1"
@@ -40,6 +46,21 @@ const Initial = () => {
         >
           Front-end Developer ‍💻
         </Text>
+        <BsGithub
+          color="white"
+          style={{ position: 'absolute', top: '44px', left: '18%', cursor: 'pointer' }}
+          onClick={() => window.open('https://github.com/silipi/', '_blank')}
+        />
+        <BsLinkedin
+          color="white"
+          style={{
+            position: 'absolute',
+            top: '44px',
+            left: 'calc(18% + 24px)',
+            cursor: 'pointer',
+          }}
+          onClick={() => window.open('https://linkedin.com/in/gabriel-silipi/', '_blank')}
+        />
       </Box>
     </Box>
   );

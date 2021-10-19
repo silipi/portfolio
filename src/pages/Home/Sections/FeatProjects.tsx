@@ -35,29 +35,10 @@ const FeatProjects = () => {
           gradientColors={['#5cd3f7', '#ff7171']}
           text="todo apps"
           description="comparison beetwen UI frameworks: React, Vue and Svelte"
-          techs={['HTML', 'CSS', 'JS', 'REACT', 'VUE', 'SVELTE']}
-          links={{ github: 'https://example.com', website: 'https://example.com' }}
-        />
-        <ProjectCard
-          gradientColors={['#6fad66', '#ecdf66']}
-          text="crud petite"
-          description="most basic full-stack app: Firebase + Petite.vue, with authentication"
-          techs={['HTML', 'CSS', 'JS', 'PETITE VUE', 'FIREBASE']}
-          links={{ github: 'https://example.com', website: 'https://example.com' }}
-        />
-        <ProjectCard
-          gradientColors={['#5cd3f7', '#ff7171']}
-          text="todo apps"
-          description="comparison beetwen UI frameworks: React, Vue and Svelte"
-          techs={['HTML', 'CSS', 'JS', 'REACT', 'VUE', 'SVELTE']}
-          links={{ github: 'https://example.com', website: 'https://example.com' }}
-        />
-        <ProjectCard
-          gradientColors={['#6fad66', '#ecdf66']}
-          text="crud petite"
-          description="most basic full-stack app: Firebase + Petite.vue, with authentication"
-          techs={['HTML', 'CSS', 'JS', 'PETITE VUE', 'FIREBASE']}
-          links={{ github: 'https://example.com', website: 'https://example.com' }}
+          techs={['HTML', 'CSS', 'JS and TS', 'REACT', 'VUE', 'SVELTE']}
+          links={{
+            github: 'https://github.com/silipi/todos-react-vue-svelte-app',
+          }}
         />
       </Grid>
       <Text
